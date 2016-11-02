@@ -18,16 +18,16 @@ public class LabFive {
     outputting the toString() value to the console.*/
     
     public static void main(String[] args) {
-        Movie m1 = new Movie("Speeder", "John Smith");
-        Movie m2 = new Movie("Adventuring", "Sarah Adams");
-        Movie m3 = new Movie("Speeder", "John Smith");
-        Movie m4 = new Movie("Absolute Winners", "Robert Jones");
+        Movie m1 = new Movie("Adventuring", "John Smith", 100);
+        Movie m2 = new Movie("Speeder", "Sarah Adams", 101);
+        Movie m3 = new Movie("Lost", "James Jobs", 100);
+        Movie m4 = new Movie("Absolute Winners", "Robert Jones", 102);
 
         Set<Movie> set = new TreeSet<Movie>();
-        set.add(m1);
+        set.add(m4);
         set.add(m2);
         set.add(m3);
-        set.add(m4);
+        set.add(m1);
         
         for(Movie movie : set) {
             System.out.println(movie.toString());

@@ -23,18 +23,18 @@ public class LabThree {
     Collections.sort() method to sort those values by the default sort order*/
     
     public static void main(String[] args) {
-        Movie m1 = new Movie("Speeder", "John Smith");
-        Movie m2 = new Movie("Adventuring", "Sarah Adams");
-        Movie m3 = new Movie("Speeder", "John Smith");
-        Movie m4 = new Movie("Absolute Winners", "Robert Jones");
+        Movie m1 = new Movie("Adventuring", "John Smith", 100);
+        Movie m2 = new Movie("Speeder", "Sarah Adams", 101);
+        Movie m3 = new Movie("Lost", "James Jobs", 100);
+        Movie m4 = new Movie("Absolute Winners", "Robert Jones", 102);
         
         Map map = new TreeMap();
-        map.put("Speeder, Smith", m1);
-        map.put("Adventuring, Adams", m2);
+        map.put(100, m1);
+        map.put(102, m4);
         //If the duplicate is given the same key as the first, the duplicate
         //will overwrite the value.
-        map.put("Speeder, Smith", m3);
-        map.put("Absolute, Jones", m4);
+        map.put(100, m3);
+        map.put(101, m2);
         
         Collection values = map.values();
         List sortedList = new ArrayList(values);

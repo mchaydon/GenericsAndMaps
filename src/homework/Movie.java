@@ -14,13 +14,15 @@ import org.apache.commons.lang3.builder.CompareToBuilder;
 public class Movie implements Comparable{
     private String title;
     private String director;
+    private int movieId;
 
     public Movie() {
     }
 
-    public Movie(String title, String director) {
+    public Movie(String title, String director, int movieId) {
         this.title = title;
         this.director = director;
+        this.movieId = movieId;
     }
     
     public String getTitle() {
@@ -39,11 +41,18 @@ public class Movie implements Comparable{
         this.director = director;
     }
 
+    public int getMovieId() {
+        return movieId;
+    }
+
+    public void setMovieId(int movieId) {
+        this.movieId = movieId;
+    }
+
     @Override
     public int hashCode() {
-        int hash = 5;
-        hash = 37 * hash + Objects.hashCode(this.title);
-        hash = 37 * hash + Objects.hashCode(this.director);
+        int hash = 7;
+        hash = 53 * hash + this.movieId;
         return hash;
     }
 
@@ -59,10 +68,7 @@ public class Movie implements Comparable{
             return false;
         }
         final Movie other = (Movie) obj;
-        if (!Objects.equals(this.title, other.title)) {
-            return false;
-        }
-        if (!Objects.equals(this.director, other.director)) {
+        if (this.movieId != other.movieId) {
             return false;
         }
         return true;
@@ -70,8 +76,10 @@ public class Movie implements Comparable{
 
     @Override
     public String toString() {
-        return title + ", directed by " + director;
+        return "Movie Id: " + movieId + ". Movie Name: " + title + ". Director Name: " + director;
     }
+
+    
 
     @Override
     public int compareTo(Object other) {
@@ -79,8 +87,7 @@ public class Movie implements Comparable{
         Movie movie = (Movie)other;
         
         return new CompareToBuilder()
-               .append(this.title, movie.title)
-               .append(this.director, movie.director)
+               .append(this.movieId, movie.movieId)
                .toComparison();
     }
     
